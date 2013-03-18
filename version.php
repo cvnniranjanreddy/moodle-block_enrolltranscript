@@ -30,3 +30,4 @@ $plugin->requires  = 2012112900;        // Requires this Moodle version
 $plugin->component    = 'block_enrolltranscripts';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = '1.x (Build: 2012061700)';
+$plugin->dependencies = array('mod_certificate' => 2012121302); 
