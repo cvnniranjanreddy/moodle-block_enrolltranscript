@@ -121,7 +121,9 @@ $certificate=$DB->get_records_sql('SELECT ce.id,cmc.coursemoduleid,ce.printhours
 /*issued certificate */
 function getcertissued($userid,$course){
 global $CFG,$DB;
-$getissued=$DB->get_records_sql('SELECT cm.id FROM {course_modules} AS cm,{certificate_issues} AS ci,{certificate} AS c where cm.course='.$course.' AND cm.module=20 AND cm.course=c.course AND c.id=ci.certificateid AND ci.userid='.$userid.'');
+$certificatemod=$DB->get_field('modules', 'id', array('name' => 'certificate'));
+$getissued=$DB->get_records_sql('SELECT cm.id FROM {course_modules} AS cm,{certificate_issues} AS ci,{certificate} AS c where cm.course='.$course.' AND cm.module='.$certificatemod.' AND cm.course=c.course AND c.id=ci.certificateid AND ci.userid='.$userid.'');
+  
    foreach($getissued as $issue){
    $output=array();
    $output=$issue->id;
