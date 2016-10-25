@@ -28,7 +28,7 @@ require_once($CFG->dirroot . '/blocks/enrolltranscripts/lib.php');
 
 require_login();
 
-$systemcontext = get_context_instance(CONTEXT_SYSTEM);
+$systemcontext = context_system::instance;
 $header = $SITE->shortname;
 
 // Start setting up the page
